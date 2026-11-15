@@ -172,3 +172,149 @@ Out of scope, by the dispatch's "Do not touch" list: PHILOSOPHY.md, GLOSSARY.md,
 **Abort conditions:** any step 1 item does not match; the fixed check fails on the plant for a reason not predicted (the dispatch says the fault is then in the check: stop and report); the fixed check does not pass on the real tree; a sabotage no longer fails; the push is refused; or anything requires a design decision the dispatch did not close.
 
 **Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-14-04.md under the operator's go quoted in that dispatch ("2 go"). The `Dispatch-file` value is relative to `prompts/`, following E-GD's RECORD.md at 7e227d0, line 254. The wording of Change, Scope boundary, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named the fields but did not give their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15; the entry ID follows the dispatch's numbering. Next free ID after this dispatch's three entries: 2026-11-14-07.
+
+---
+
+**Kind:** decision
+
+**ID:** 2026-11-14-05
+
+**Timestamp:** 2026-11-15T07:34:03Z
+
+**Model:** claude-fable-5-2
+
+**Title:** The operator's rulings of 2026-11-14, 23:23 to 23:28 PST: where the research-layer principles go, field labels, the first-round role split, models, writing rules, license
+
+**Exchange A, what the operator was told (Planner, 2026-11-14 about 23:20 PST), three open questions:** "1. Under E-GD's own practice, new principles go into PROTOCOL.md first. Should the 6 research-layer ones move there once PROTOCOL.md exists, or stay where they are? 2. The record's prediction field labels contain em dashes copied from E-GD's format. Should E-GR's labels drop them from now on? 3. One session did both the planning and the building, so the role split didn't hold. The record says so."
+
+**Exchange A, the operator, verbatim, 2026-11-14 23:23 PST:**
+
+"1 yes
+2 yes
+3 that's permitted on the first round, as no other role has been defined. But let's go ahead and have the analyst begin populating the repo. Create a plan to get that done"
+
+**Exchange B, the operator, verbatim, 2026-11-14 23:25 PST:** "I switched to Fable 5.2 for the planner role. This will require frontier work"
+
+**Exchange B, the operator, verbatim, 2026-11-14 23:26 PST, answering the Planner's question whether the Analyst should run on a specific model:** "At least for the time. It's not a permanent thing and may change. This is more than likely to be used by several models, so we will need to have the frontier logic be front and center on the majority of things, so the lower models can follow the logic themselves"
+
+**Exchange C, what the operator was told (Planner, 23:27 PST):** four proposed writing rules, "Correct anything I've read wrong": (1) every rule carries its reasoning on the page: what to do, why, one worked example, and what to do when unclear; (2) dispatches are self-contained; (3) each record entry names the model that wrote it; (4) the documents get tested on a smaller model, which "needs your approval". Then three asks: "a yes or no on item 4, and which model counts as the weakest; the go for T1; the license, which only blocks T8."
+
+**Exchange C, the operator, verbatim, 2026-11-14 23:28 PST:**
+
+"1 yes, any model with low context in this case
+2 go
+3 MIT license"
+
+**What it sets:**
+
+1. The six research-layer principles move to PROTOCOL.md when it is built. Operator's ruling (A1).
+2. E-GR's field labels carry no em dashes from this entry on. The two prediction labels become `Prediction (outcome, planner)` and `Prediction (mechanism, analyst)`. Operator's ruling (A2). Earlier entries stay as written.
+3. One session planning and building was permitted for the first round only. Operator's ruling (A3).
+4. The Planner currently runs on claude-fable-5-2, by the operator's choice, not permanently (B). The skeleton and the task plan before 23:25 PST were made on claude-opus-5-5.
+5. E-GR's documents are written so that a less capable model can follow the reasoning from the page (B).
+6. Writing rules 1 to 3 in Exchange C: proposed by the Planner, shown to the operator, not corrected. Label them "proposed, not corrected", not "operator's ruling".
+7. Writing rule 4, testing on a smaller model: approved by the operator (C1). The operator's words on which model are "any model with low context in this case". The Planner reads this as: any model, in a fresh session given only minimal context. That reading is the Planner's and is unconfirmed; it is to be confirmed with the operator before task T7 uses it.
+8. License: MIT (C3).
+
+**Who decided:** the operator, for items 1, 2, 3, 4, 5, 7 (the approval) and 8. Items 6 and the reading in item 7 are the Planner's: item 6 is proposed, not corrected; the reading in item 7 is unconfirmed. The Analyst decided nothing here.
+
+**Not authorised by this:** building PROTOCOL.md, adding a LICENSE file, or any task other than this dispatch. Each waits for its own go.
+
+**Notes:** Written by the Analyst from the dispatch at prompts/preserved/2026-11-14-04.md, step 3. Every quotation and the eight items under What it sets are copied from that dispatch as it stands at commit 126164c. The Analyst has no access to the chat in which these exchanges took place, so the quotations are verified against the dispatch only, not against their original source; the Planner's attribution of them is taken as given. In Exchange C, the text outside quotation marks under "what the operator was told" is the Planner's summary of its own message, as the dispatch gives it, not a verbatim quotation. The operator's two multi-line answers are kept on consecutive lines as the dispatch has them. The operator's "2 go" in Exchange C is the go for T1, which the dispatch says covers that dispatch only.
+
+---
+
+**Kind:** terminal
+
+**ID:** 2026-11-14-06
+
+**Timestamp:** 2026-11-15T07:35:19Z
+
+**Model:** claude-fable-5-2
+
+**Closes:** 2026-11-14-04
+
+**Outcome:** completed
+
+**Observed:**
+
+Step 1 of the dispatch, verified before anything was built:
+
+- a. Confirmed. HEAD was 126164cade6d0f6d0fd747658a152798ed3c309c, whose parent is 1bd7f18. `git diff --name-status 1bd7f18 HEAD` listed one file, added: prompts/preserved/2026-11-14-04.md.
+- b. Confirmed. `python3 check_transfer.py /home/claude/slayer8366/e-gd-philosophy/PHILOSOPHY.md` (E-GD at 7e227d0) printed `counts: Carried 21, Code-only 8, New 6, Translated 16` then `PASS`, exit 0.
+- c. Confirmed, mechanism as the Planner diagnosed it. `egr_heads` was assigned at line 62 and read only as `egr_heads.count(h)` at lines 69, 78 and 79, with `h` taken from E-GD's headwords or from GLOSSARY.md rows; nothing walked `egr_heads`. Reproduced on a scratch copy at /tmp/egr-scratch with the plant appended: PASS, exit 0. Details are in the Baseline of 2026-11-14-04.
+- d. Confirmed. `git ls-remote origin` showed skeleton-2026-11-14 at 1bd7f18 and t1-2026-11-14 at 126164c; RECORD.md at both ended at 2026-11-14-03.
+
+Order of work: intent entry 2026-11-14-04 was appended, committed alone and pushed before any other file was touched. `git ls-remote origin t1-2026-11-14` then showed f7c2d6b6550f124fc45125b00d81ddb2517c7d46. Decision entry 2026-11-14-05 was appended next; a script compared every quoted string in the dispatch's Exchanges A to C, the eight What-it-sets items and the Not-authorised text against RECORD.md, and each was found character for character.
+
+Check runs of step 4, in order. Every run used E-GD's PHILOSOPHY.md at 7e227d0 as the argument. Plants and sabotages were on scratch copies under /tmp; the working tree's PHILOSOPHY.md and GLOSSARY.md were never edited.
+
+1. Step 4.1, unfixed check (byte-identical to 1bd7f18), scratch /tmp/egr-plant with `**Stray Principle:** New. Planted.` appended as the last line of PHILOSOPHY.md, 07:34:10Z. Output:
+   `counts: Carried 21, Code-only 8, New 6, Translated 16`
+   `PASS`
+   Exit 0. The gap, observed.
+2. Step 4.2, the fix: one loop added to check_transfer.py after the GLOSSARY-row loop, `for h in egr_heads: if h not in by_head:` adding the failure `PHILOSOPHY.md: '<headword>' has no GLOSSARY.md row`, and one sentence added to the docstring. Nothing else changed.
+3. Step 4.3, fixed check, same scratch copy, plant present, 07:34:23Z. Output:
+   `counts: Carried 21, Code-only 8, New 6, Translated 16`
+   `FAIL: PHILOSOPHY.md: 'Stray Principle' has no GLOSSARY.md row`
+   `1 failure(s)`
+   Exit 1.
+4. Step 4.4, fixed check on the real working tree, no plant, 07:34:23Z. Output:
+   `counts: Carried 21, Code-only 8, New 6, Translated 16`
+   `PASS`
+   Exit 0.
+5. Step 4.5, sabotage 1, scratch /tmp/egr-sab1, line 46 of GLOSSARY.md (`| Checks Decay | E-GD:83 | Translated | Active |`) removed, 07:34:23Z. Output:
+   `counts: Carried 21, Code-only 8, New 6, Translated 15`
+   `FAIL: GLOSSARY.md: 'Checks Decay' appears 0 times, expected 1`
+   `FAIL: PHILOSOPHY.md: 'Checks Decay' has no GLOSSARY.md row`
+   `2 failure(s)`
+   Exit 1. The failure entry 2026-11-14-03 describes is present, with one more from the new rule.
+6. Step 4.5, sabotage 2, scratch /tmp/egr-sab2, line 48 of GLOSSARY.md, Sourced Claims bucketed "Carryed", 07:34:33Z. Output:
+   `counts: Carried 20, Code-only 8, New 6, Translated 16`
+   `FAIL: GLOSSARY.md line 48: bad bucket 'Carryed' for 'Sourced Claims'`
+   `1 failure(s)`
+   Exit 1. As entry 2026-11-14-03 describes.
+7. Step 4.5, sabotage 3, scratch /tmp/egr-sab3, line 87 of PHILOSOPHY.md, `**Severity of Checks:**` renamed `**Severity of Checkz:**`, 07:34:34Z. Output:
+   `counts: Carried 21, Code-only 8, New 6, Translated 16`
+   `FAIL: PHILOSOPHY.md: 'Severity of Checks' appears 0 times, expected 1`
+   `FAIL: PHILOSOPHY.md: 'Severity of Checkz' has no GLOSSARY.md row`
+   `2 failure(s)`
+   Exit 1. The failure entry 2026-11-14-03 describes is present, with one more from the new rule. This is the stray headword that entry's first deviation said went unreported; it is now reported.
+8. Reverts: the plant and each sabotage were undone on their scratch copies; each copy's PHILOSOPHY.md and GLOSSARY.md were then byte-identical to the working tree's (`cmp`), and each printed the counts line and `PASS`, exit 0.
+
+Predictions:
+
+- Prediction (outcome, planner): right. With the plant, exit 1, exactly one failure, naming 'Stray Principle' (run 3). Without it, PASS with counts Carried 21, Code-only 8, New 6, Translated 16, unchanged (run 4).
+- Prediction (mechanism, analyst): right on every part. Unfixed check with the plant: PASS, exit 0 (run 1). Fixed check with the plant: the three predicted lines, exit 1 (run 3). Real tree: PASS (run 4). Sabotage 1: 2 failures, both as predicted, and one fewer Translated (run 5). Sabotage 2: 1 failure as predicted, one fewer Carried (run 6). Sabotage 3: 2 failures as predicted (run 7).
+
+At commit, read after this entry was written and before `git commit`:
+
+- Check on the tree exactly as committed: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0.
+- Append-only count, `git diff HEAD -- RECORD.md | grep -c '^-[^-]'`: 0.
+- `git status --short` file list: ` M RECORD.md` and ` M check_transfer.py`. No do-not-touch file is listed.
+- Pushed commit hash as `git ls-remote` shows it: f7c2d6b6550f124fc45125b00d81ddb2517c7d46 for the intent commit. The hash of the commit that carries this entry cannot be written inside that commit; see Deviations.
+
+**Deviations:**
+
+Could not verify:
+
+- The quotations in 2026-11-14-05 against the chat they come from. They were checked against the dispatch only. The dispatch says this cannot be checked from the repository.
+- The final commit's hash cannot appear in this entry, because the entry is part of that commit. It is given in the Analyst's report to the operator, as `git ls-remote` shows it. Adding a further entry to hold it would need an ID this dispatch does not give.
+
+Decided by the Analyst:
+
+- The wording of Change, Scope boundary, Finish line and Abort conditions in 2026-11-14-04, and of Title, Who decided and Notes in 2026-11-14-05. The dispatch named these fields without giving their text.
+- The field labels that carry the quoted exchanges in 2026-11-14-05 ("Exchange A, the operator, verbatim, ..."), modelled on 2026-11-14-01.
+- The new rule adds one failure per occurrence of an unlisted headword, so the same stray headword written twice is reported twice. The dispatch said "for each one that does not" and did not say whether that means each headword or each occurrence. Not run; read from the loop.
+- Sabotage 3's replacement name, "Severity of Checkz". Entry 2026-11-14-03 does not say what name it used.
+- The E-GD clone already present at /home/claude/slayer8366/e-gd-philosophy (HEAD 7e227d0, clean before and after) was used, not a new clone.
+- The decision entry was not committed separately; the dispatch asks for the intent alone, then one commit at step 5.
+
+Seen and not asked about:
+
+- Sabotages 1 and 3 now print two failures where entry 2026-11-14-03 records one. The dispatch says each "must still fail as that entry describes"; the described failure is still there in both, so this was read as meeting the dispatch, and it was predicted in 2026-11-14-04 before the fix.
+- A GLOSSARY.md row with fewer than three cells is not entered in `by_head` (lines 56 to 58 of check_transfer.py as committed here), so its headword would be reported twice over: once as a short row, once as having no row. Not run; read from the code. Not built for.
+- The dispatch's outcome prediction writes the plant as `**Stray Principle:** New.`; step 4 writes it as `**Stray Principle:** New. Planted.`. The headword is the same and the check reads only the headword. The step 4 text was the one planted.
+- E-GR has no check of RECORD.md's form or of prompts/ against Dispatch-file fields (E-GD has check_record.py and check_prompts.py, per its RECORD.md line 254). Nothing verified the three entries added here beyond the Analyst reading them.
+
+**Notes:** Written by the Analyst. The check, the append-only count and `git status` were run after this entry was written and before the commit. Next free ID: 2026-11-14-07.

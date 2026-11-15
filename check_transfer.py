@@ -4,7 +4,8 @@
 Every bold headword in E-GD's PHILOSOPHY.md must appear exactly once as a
 row in E-GR's GLOSSARY.md, with a valid bucket, and exactly once as a bold
 headword in E-GR's PHILOSOPHY.md. Rows bucketed New must not be E-GD
-headwords, and must also appear once in E-GR's PHILOSOPHY.md.
+headwords, and must also appear once in E-GR's PHILOSOPHY.md. Every bold
+headword in E-GR's PHILOSOPHY.md must have a row in E-GR's GLOSSARY.md.
 
 Usage: python3 check_transfer.py PATH_TO_EGD_PHILOSOPHY_MD
 Exit 0 on pass, 1 on any failure, each failure printed on its own line.
@@ -77,6 +78,10 @@ def main(egd_philosophy):
             failures.append(f"GLOSSARY.md: '{h}' is not an E-GD headword and not bucketed New")
         if egr_heads.count(h) != 1:
             failures.append(f"PHILOSOPHY.md: New headword '{h}' appears {egr_heads.count(h)} times, expected 1")
+
+    for h in egr_heads:
+        if h not in by_head:
+            failures.append(f"PHILOSOPHY.md: '{h}' has no GLOSSARY.md row")
 
     counts = {b: sum(1 for g in by_head.values() for _, c in g if len(c) > 2 and c[2] == b)
               for b in sorted(BUCKETS)}
