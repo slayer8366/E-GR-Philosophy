@@ -318,3 +318,58 @@ Seen and not asked about:
 - E-GR has no check of RECORD.md's form or of prompts/ against Dispatch-file fields (E-GD has check_record.py and check_prompts.py, per its RECORD.md line 254). Nothing verified the three entries added here beyond the Analyst reading them.
 
 **Notes:** Written by the Analyst. The check, the append-only count and `git status` were run after this entry was written and before the commit. Next free ID: 2026-11-14-07.
+
+---
+
+**Kind:** intent
+
+**ID:** 2026-11-14-07
+
+**Timestamp:** 2026-11-15T14:03:04Z
+
+**Model:** claude-opus-5-5
+
+**Title:** ENFORCEMENT.md for the 16 Translated principles, its completeness check, and its review
+
+**Dispatch-file:** preserved/2026-11-14-07.md
+
+**Change:**
+
+1. RECORD.md: append a decision entry, 2026-11-14-08, holding Exchange D from the dispatch's step 3 and Exchange E from the addendum at prompts/preserved/2026-11-14-07-addendum.md, quotations copied character for character.
+2. check_transfer.py: add `ENFORCED_BUCKETS = {"Translated"}` and rules R1 to R4 exactly as the dispatch's step 4 states them, with their messages, and update the docstring to state them. Nothing else is added.
+3. ENFORCEMENT.md: create it with exactly the text between the dispatch's `ENFORCEMENT-BEGIN` and `ENFORCEMENT-END` markers, markers excluded. The only permitted change is a line-number correction from step 1d; none is needed (see Baseline).
+4. reports/2026-11-14-07.md: the step 5 review, three tables (Artifacts, Coverage, Fit), classified and recorded, not fixed.
+5. GLOSSARY.md, BOOTSTRAP.md, README.md: the three replacements of dispatch step 6, exactly as given, and nothing else in those files.
+6. RECORD.md: append a terminal entry, 2026-11-14-09, closing this intent.
+
+**Scope boundary:** RECORD.md (appended lines only), check_transfer.py, the new files ENFORCEMENT.md and reports/2026-11-14-07.md, and the lines of GLOSSARY.md, BOOTSTRAP.md and README.md named in step 6, on branch t2-2026-11-14 of slayer8366/E-GR-Philosophy.
+
+Out of scope, by the dispatch's "Do not touch" list: the wording of any entry between the markers; PHILOSOPHY.md; both skills; every other line of GLOSSARY.md, BOOTSTRAP.md and README.md; existing lines of RECORD.md; the dispatch file, its addendum and the T1 dispatch; E-GD; entries for Carried principles; PROTOCOL.md and everything else in the task plan. Also out of scope: other branches, merging, a pull request, adding "Carried" to `ENFORCED_BUCKETS` (task T3), checking entry wording by script beyond the four labels, and fixing anything the review finds. Plants and sabotages are made on scratch copies under /tmp.
+
+**Baseline:**
+
+- Step 1a: confirmed with one difference the addendum explains. Branch t2-2026-11-14 at b63af85f33e66eb47773e7a750f04cf03884a093; `git merge-base --is-ancestor c8812e8 HEAD` succeeds; history is c8812e8, then 199ac5c (the dispatch), then b63af85 (the addendum). `git diff --name-status c8812e8 HEAD` lists two files, both added: prompts/preserved/2026-11-14-07-addendum.md and prompts/preserved/2026-11-14-07.md. The dispatch says one file; the addendum, written after it, is the second.
+- Step 1b: confirmed. `python3 check_transfer.py /home/claude/slayer8366/e-gd-philosophy/PHILOSOPHY.md` (E-GD clone at 7e227d048e30e13e79151dbce4a8339cee4970b3, clean), run at 2026-11-15T14:02:27Z, printed `counts: Carried 21, Code-only 8, New 6, Translated 16` then `PASS`, exit 0.
+- Step 1c: confirmed. `git ls-remote origin` shows main at c8812e8, t1-2026-11-14 at de26e7d and t2-2026-11-14 at b63af85. RECORD.md at each of the three commits has `**ID:**` lines 2026-11-14-01 to 2026-11-14-06 and no later ID.
+- Step 1d: confirmed for all 16 entries. For each, line N of E-GD's ENFORCEMENT.md at 7e227d0 (256 lines) is `**<Headword>**`, and `grep -n` finds that bold headword on that line only: Role Partition 29, Reconstructable Environments 95, Explicit Canonicalization 104, Presentation Is Not Acquisition 118, Truthful Interface Contracts 122, Capability Ranges Are Not Operating Envelopes 126, Concurrency Awareness 133, Evidence-Based Feature Addition 159, Separate Execution Contexts 164, Confirm Failure Before Applying Fixes 167, Checks Decay 172, Data-Driven Debugging 188, Validate Real Event Paths 191, Assert Structural and Semantic Truths 194, Intent-Driven Engineering 209, Complete Task Prompts 215. No correction needed.
+- Step 1e: confirmed. Each of the 16 headwords has exactly one GLOSSARY.md row, bucket Translated. GLOSSARY.md has 16 Translated rows in all, so the 16 are the whole bucket.
+
+**Prediction (outcome, planner):** "1. Enforceability. In the step 5 review, at most 4 of the Do bullets across the 16 entries are flagged as leaving no artifact. The risk this task was ordered first for is that a research mechanism has no enforceable action; more than 4 flags would mean the entries need redesign before T3 builds on their form.
+2. Coverage. At least one bullet of an E-GD entry will be found to have no E-GR counterpart that was not dropped on purpose.
+3. The check. With all 16 entries present the extended check passes with counts unchanged. Each of the four sabotages in step 4 fails with the message that step names."
+
+**Prediction (mechanism, analyst):** Written before check_transfer.py is edited. The new rules run after the existing ones, after the stray-headword loop and before the counts line; R1's failure skips R2 to R4 but not the counts line. Counts are computed from GLOSSARY.md rows only, so no run here changes them. Every run uses E-GD's PHILOSOPHY.md at 7e227d0.
+
+- Step 4.1, rules written, no ENFORCEMENT.md: three lines, exit 1: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `FAIL: missing file: ENFORCEMENT.md`, `1 failure(s)`.
+- Step 4.2, ENFORCEMENT.md written: counts line unchanged, `PASS`, exit 0. The preamble's `- **Do** is the actions.` lines sit before the first `### ` line and do not start with a label, so R4 does not see them.
+- S1, Checks Decay entry deleted: exit 1, exactly one failure, `ENFORCEMENT.md: 'Checks Decay' appears 0 times, expected 1`. No R4 failure, because the deleted entry's labels go with it and the entry before it (Confirm Failure Before Applying Fixes) still ends at the next `### `.
+- S2, Role Partition's `**Example:**` changed to `Example:`: exit 1, exactly one failure, `ENFORCEMENT.md: 'Role Partition' has 0 '**Example:**' lines, expected 1`.
+- S3, `### Uniform Code Paths` appended with all four labels: exit 1, exactly one failure, `ENFORCEMENT.md: 'Uniform Code Paths' is not a Carried or Translated headword`. R2 does not fire, since Uniform Code Paths is Code-only and not in `ENFORCED_BUCKETS`; R4 does not fire, since its four labels are present once each.
+- S4, `**Stray Principle:** New.` planted in PHILOSOPHY.md: exit 1, exactly one failure, `PHILOSOPHY.md: 'Stray Principle' has no GLOSSARY.md row`.
+- Each scratch copy, reverted: counts line unchanged, `PASS`, exit 0.
+
+**Finish line:** entry 2026-11-14-08 is appended with every quotation as the dispatch and addendum give it; check_transfer.py carries `ENFORCED_BUCKETS` and R1 to R4 and an updated docstring, and nothing else new; R1 was observed failing before ENFORCEMENT.md existed; ENFORCEMENT.md is shown by script to equal the dispatch's block; the check passes on it with counts unchanged; S1 to S4 were each observed failing with the message step 4 names and were reverted; reports/2026-11-14-07.md holds the three tables; the three step 6 edits are made; terminal entry 2026-11-14-09 is written; the check passes on the tree exactly as committed; the append-only count is 0 before each commit; `git status` shows no do-not-touch file changed; the branch is pushed and confirmed with `git ls-remote`.
+
+**Abort conditions:** step 1a, 1b, 1c or 1e does not match; any check run fails for a reason not predicted (the dispatch says the fault is then in the check: stop and report); ENFORCEMENT.md does not equal the block; the check does not pass on the real tree; a push is refused; the append-only count is not 0; or anything requires a design decision the dispatch did not close.
+
+**Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-14-07.md and its addendum at prompts/preserved/2026-11-14-07-addendum.md, under the operator's go quoted in the dispatch ("3 go") and the go to start the Analyst quoted in the addendum ("2 go"). The `Model` value is read from the session's own information, which names the model Opus 5.5, ID claude-opus-5-5. The wording of Title, Change, Scope boundary, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named these fields without giving their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15; the entry IDs follow the dispatch's numbering, as the addendum confirms. Next free ID after this dispatch's three entries: 2026-11-14-10.
