@@ -21,16 +21,16 @@ The philosophy governs; this document executes. Where the two conflict, follow t
 
 ### Role Partition
 
-E-GD source: ENFORCEMENT.md line 29 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 29 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
 1. Every session starts with a stated role. An agent that was not told its role asks before acting, and names its role in the Notes of every record entry it writes.
 2. The Planner does not run analyses, edit data, or write results. When work needs running, the Planner writes a protocol or dispatch file.
 3. The Analyst does not add, drop or change a hypothesis, sample, exclusion, covariate, transformation, test or threshold. If the protocol does not name it, the Analyst stops and reports.
-4. An agent asked to act outside its role declines and names the role that owns the action.
+4. An agent asked to act outside its role declines, names the role that owns the action, and writes the decline in its report: what was asked, and which role owns it.
 5. An Analyst whose protocol contradicts another Analyst's work stops and reports the conflict. The Planner reconciles.
 
-**Why:** An agent able to run the analysis will run it before the design is finished. An agent able to change the design will change it instead of reporting a gap. Once data has been seen, any design change can be tuned to the result without anyone intending it.
+**Why:** An agent able to run the analysis will run it before the design is finished. An agent able to change the design will change it instead of reporting a gap. Once data has been seen, any design change can be tuned to the result without anyone intending it. A decline is written down because a refusal nobody can see looks the same as work that was skipped.
 
 **Example:** The protocol says one-way ANOVA on dry yield. The Analyst sees the group variances are very unequal. The Analyst does not switch to a different test. It reports the variances and stops. The Planner proposes options, the Operator decides, the decision is recorded, and the analysis is rerun.
 
@@ -84,7 +84,7 @@ E-GD source: ENFORCEMENT.md line 118 at 7e227d0.
 
 ### Truthful Interface Contracts
 
-E-GD source: ENFORCEMENT.md line 122 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 122 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
 1. The Planner's protocol states, for each assay or instrument, its limit of detection and what it cannot tell apart.
@@ -96,22 +96,23 @@ E-GD source: ENFORCEMENT.md line 122 at 7e227d0.
 
 **Example:** An assay finds a compound below its limit in 3 of 12 samples. The table shows "<LOD" three times, and the report says how the mean treated those three, as the protocol specified.
 
-**When unclear:** If the limit is not known, write "limit of detection not established" beside the results.
+**When unclear:** If the protocol does not state the limit, stop and ask the Planner. Results already produced carry "limit of detection not established".
 
 ### Capability Ranges Are Not Operating Envelopes
 
-E-GD source: ENFORCEMENT.md line 126 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 126 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
-1. The Planner's protocol states the range each instrument or method was checked over, separately from the range the manufacturer states, and says where the check came from.
-2. The Analyst flags any reading outside the checked range, beside the value, and records both ranges.
-3. A calibration curve is not extended beyond its standards without a flag.
+1. The Planner's protocol states the range each instrument or method was validated over, separately from the range the manufacturer states, and says where the validation came from.
+2. The Planner does not plan a run, a setting or a sample outside the validated range. A protocol that needs to go outside it first names a validation step for the wider range.
+3. The Analyst keeps any reading that lands outside the validated range anyway, flags it beside the value, and records both ranges. It is not discarded and not corrected.
+4. A calibration curve is not extended beyond its standards. A value beyond them is reported as beyond them, with a flag.
 
-**Why:** What an instrument can be set to is not what it has been shown to do accurately. Outside the checked range the reading may be right, but nothing says so.
+**Why:** What an instrument can be set to is not what it has been shown to do accurately. Planning inside the validated range keeps results where something vouches for them. Conditions still drift outside it, and throwing those readings away would hide that it happened.
 
-**Example:** An incubator can be set from 5 to 60 °C. Its probe was compared with a reference thermometer only between 18 and 25 °C. A run at 30 °C is flagged "outside checked range".
+**Example:** An incubator's probe was compared with a reference thermometer between 18 and 25 °C. The protocol sets it to 22 °C. During a hot spell the log shows 27 °C for six hours. Those readings are kept, flagged "outside validated range", and reported with the result. The run is not quietly dropped and the readings are not edited.
 
-**When unclear:** If no check exists, record "checked range: none recorded" in that instrument's conditions.
+**When unclear:** If no validation exists, there is no range to plan inside. Stop and ask the Operator whether to validate first or to run with every result labelled "no validated range".
 
 ### Concurrency Awareness
 
@@ -145,16 +146,17 @@ E-GD source: ENFORCEMENT.md line 159 at 7e227d0.
 
 ### Separate Execution Contexts
 
-E-GD source: ENFORCEMENT.md line 164 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 164 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
 1. Every result is reported with its context named: medium or substrate, vessel, environment (chamber, room, field), scale, and in vitro or in vivo.
-2. A result from one context is not stated as holding in another. The report says "tested in A; not tested in B".
-3. A claim about a second context needs a run in that context, or it is labelled inferred.
+2. The Planner's protocol names a run in each context the study intends to make claims about.
+3. A result from one context is not stated as holding in another. The report says "tested in A; not tested in B".
+4. A statement about a context that was not tested is never reported as a result. Where it has to be made, it is labelled "inferred, not tested" and kept apart from the results.
 
 **Why:** Organisms and methods behave differently when conditions change, and the change that matters is often one nobody thought to name.
 
-**Example:** A strain colonizes agar quickly. That is reported as fast growth on agar. It is not reported as fast growth on grain, which is a separate claim needing its own run.
+**Example:** A strain colonizes agar quickly. That is reported as fast growth on agar. If the study wants to say anything about grain, the protocol includes a grain run. Without one, "likely fast on grain" may appear only in the discussion, labelled "inferred, not tested".
 
 **When unclear:** If two contexts might count as the same, treat them as different and name both.
 
@@ -176,7 +178,7 @@ E-GD source: ENFORCEMENT.md line 167 at 7e227d0.
 
 ### Checks Decay
 
-E-GD source: ENFORCEMENT.md line 172 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 172 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
 1. The Planner's protocol states how often each control, calibration and reference material is rerun: every run, every batch, or a stated interval.
@@ -188,7 +190,7 @@ E-GD source: ENFORCEMENT.md line 172 at 7e227d0.
 
 **Example:** A balance is checked with a reference weight monthly. Yields weighed six weeks after the last check carry "control out of date".
 
-**When unclear:** If the protocol states no interval, ask the Planner. Until answered, label results "no control schedule".
+**When unclear:** If the protocol states no interval, stop and ask the Planner. Results already produced carry "no control schedule".
 
 ### Data-Driven Debugging
 
@@ -206,18 +208,19 @@ E-GD source: ENFORCEMENT.md line 188 at 7e227d0.
 
 ### Validate Real Event Paths
 
-E-GD source: ENFORCEMENT.md line 191 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 191 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
 1. The Planner's protocol says what material and conditions each method was validated on.
-2. The Analyst reports every difference between that and the samples actually run: matrix, range, handling, age.
-3. A method validated only on reference or ideal material is labelled as such wherever its results appear, until it has been tested on material like the real samples.
+2. The Planner does not plan to use a method on material unlike what it was validated on. The protocol first names a validation step on material like the real samples.
+3. The Analyst reports every difference found between that material and the samples actually run: matrix, range, handling, age.
+4. Results already produced on material that turned out to differ are kept, and carry "validated on" followed by the validated material and "only", wherever they appear.
 
-**Why:** A method that works on clean reference material has been tested on clean reference material. Real samples are older, mixed, degraded or contaminated, and that is where methods fail.
+**Why:** A method that works on clean reference material has been tested on clean reference material. Real samples are older, mixed, degraded or contaminated, and that is where methods fail. Results that already exist are kept because discarding them hides what was done.
 
-**Example:** A primer set was tested on pure cultures. It is then used on dried field-collected fruiting bodies. Its results carry "validated on pure culture only".
+**Example:** A primer set was tested on pure cultures. The study wants to use it on dried field-collected fruiting bodies. The protocol adds a step first: run the primers on dried specimens of known identity. If some dried specimens were run before anyone noticed, those results stay in the table with "validated on pure culture only".
 
-**When unclear:** Report the difference and let the Operator decide whether it matters.
+**When unclear:** Report the difference and stop. The Operator decides whether it matters.
 
 ### Assert Structural and Semantic Truths
 
@@ -237,18 +240,18 @@ E-GD source: ENFORCEMENT.md line 194 at 7e227d0.
 
 ### Intent-Driven Engineering
 
-E-GD source: ENFORCEMENT.md line 209 at 7e227d0.
+E-GD source: ENFORCEMENT.md line 209 at 7e227d0. Amended under RECORD.md 2026-11-15-01.
 
 **Do:**
-1. Before any data is collected or opened for a result, a pre-registration entry in `RECORD.md` states: the hypothesis, a prediction concrete enough to be wrong, the sample size and how it was chosen, the exclusions, the tests and thresholds, the controls, the finish line and the abort conditions. If any is missing, no data is touched.
+1. Before any data is collected or opened for a result, a pre-registration entry in `RECORD.md` states: the hypothesis; a prediction concrete enough to be wrong; the scope boundary (the data and questions the study covers, and what it leaves out); the baseline (the state of the data and materials before the study starts); the sample size and how it was chosen; the exclusions; the tests and thresholds; the controls; the finish line and the abort conditions. If any is missing, no data is touched.
 2. The entry is committed and pushed before the data is read.
 3. One entry per study or analysis, not per step. Work outside its stated scope needs a new entry.
 4. Afterwards, the result is compared with the prediction. A wrong prediction is recorded as wrong, with what was observed. It is never rewritten.
 5. An analysis not in the pre-registration is allowed only when labelled exploratory and reported apart.
 
-**Why:** Thresholds, exclusions and tests chosen after the data is seen can produce almost any result. A prediction that could not have been wrong confirms nothing. Writing both down first, where they cannot be changed, is what makes the result mean something.
+**Why:** Thresholds, exclusions and tests chosen after the data is seen can produce almost any result. A prediction that could not have been wrong confirms nothing. The scope boundary shows later whether work strayed, and the baseline shows what changed. Writing them down first, where they cannot be changed, is what makes the result mean something.
 
-**Example:** "Prediction: cultures five or more transfers from the master fruit in fewer than half of jars; cultures two or fewer transfers from the master fruit in more than half. Six jars per cell. Contaminated jars are excluded, counted and reported."
+**Example:** "Prediction: cultures five or more transfers from the master fruit in fewer than half of jars; cultures two or fewer transfers from the master fruit in more than half. Scope: one strain, one substrate; no claim about other strains. Baseline: 24 jars inoculated on one day from cultures whose transfer counts are logged. Six jars per cell. Contaminated jars are excluded, counted and reported."
 
 **When unclear:** If data was seen before the entry was written, say so in the entry. The result is labelled "not pre-registered".
 

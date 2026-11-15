@@ -564,3 +564,170 @@ Out of scope, by the dispatch's "Do not touch" list: the wording of any entry or
 **Abort conditions:** step 1a to 1e does not match, or a fault in 1f is not what the report says in substance; any check run fails for a reason not predicted; the 4c script finds a difference outside the named lines and entries; the positive control does not fail with the named message; a push is refused; the append-only count is not 0; or anything requires a design decision the dispatch did not close.
 
 **Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-15-01.md under the operator's words quoted there ("1 Split it"), read by the Planner as the go for this task. The `Model` value is read from the session's own information, which names the model Opus 5.5, ID claude-opus-5-5. The wording of Title, Change, Scope boundary, Baseline, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named these fields without giving their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15. Next free ID after this dispatch's three entries: 2026-11-15-04.
+
+---
+
+**Kind:** decision
+
+**ID:** 2026-11-15-02
+
+**Timestamp:** 2026-11-15T22:21:53Z
+
+**Model:** claude-opus-5-5
+
+**Title:** The operator's ruling of 2026-11-15 14:17 PST: Split for work outside what was validated; go for T2b, the backup-procedure task and T3
+
+**Exchange, what the operator was told (Planner, 2026-11-15 about 06:20 PST):** "Decision for you: when work falls outside what was validated, which wins?" with three options. "Strict: the philosophy stands. Planned work stays inside the validated range, method, and context, and the entries get tightened." "Label: the entries stand. Work outside is allowed if every result carries the label, and the philosophy wording gets loosened." "Split (my suggestion): a protocol may not *plan* work outside the validated range. A reading that lands outside anyway is kept and flagged, not thrown away." Then: "Next steps, each needing your go: 1. A small correction task (T2b) for the four faults, once you pick an option above. 2. The backup procedure, before anything merges. The T2 branch stays unmerged until then. 3. After those, T3: the 21 Carried entries."
+
+**Exchange, the operator, verbatim, 2026-11-15 14:17 PST:**
+
+"1 Split it
+2 yes 
+3 go"
+
+**The Planner's reading, which is the Planner's and not the operator's words:** "1 Split it" picks the Split option and is the go for this task; "2 yes" is the go for the backup-procedure task; "3 go" is the go for task T3.
+
+**What it sets:**
+
+1. Split. A protocol may not plan work outside what was validated. A reading or result that lands outside anyway is kept and flagged, never discarded. Operator's ruling.
+2. Go for task T2b, this dispatch. By the Planner's reading of "1 Split it".
+3. Go for the backup-procedure task. By the Planner's reading of "2 yes". Where E-GR's backups are kept is not decided; the Planner is asking the operator.
+4. Go for task T3. By the Planner's reading of "3 go".
+5. The corrections for faults 2, 3 and 4 were written by the Planner. The operator was shown the faults, not the corrected wording. Label them "proposed by the Planner, wording not yet shown to the operator".
+6. The operator's confirmation of the 16 entries (entry 2026-11-14-08, item 6) was given on one-line summaries that did not show faults 1 to 4. The seven entries corrected here are no longer covered by it.
+
+**Supersedes:** the seven entries and three philosophy lines as they stood at `5961ff4`. Their old wording stays readable there.
+
+**Deferred:** the five Artifacts rows the first review marked "partial" (Role Partition 1, Concurrency Awareness 1, Confirm Failure Before Applying Fixes 2, Intent-Driven Engineering 2, Complete Task Prompts 5) are not corrected by this task.
+
+- DEFER: Role Partition Do 1. The asking before acting has no named place to be recorded (reports/2026-11-14-07.md, Artifacts, "partial").
+- DEFER: Concurrency Awareness Do 1. The Operator's acknowledgement of the shared-resource list has no named place to be recorded (reports/2026-11-14-07.md, Artifacts, "partial").
+- DEFER: Confirm Failure Before Applying Fixes Do 2. No artifact shows that the control comparison came before the test result was read (reports/2026-11-14-07.md, Artifacts, "partial").
+- DEFER: Intent-Driven Engineering Do 2. No artifact records when the data was read, so the order of pre-registration against data reading cannot be shown (reports/2026-11-14-07.md, Artifacts, "partial").
+- DEFER: Complete Task Prompts Do 5. When nothing is missing, no place is named for the result of the Analyst's structural check (reports/2026-11-14-07.md, Artifacts, "partial").
+
+**Who decided:** the operator, for item 1, in the words "1 Split it". Items 2, 3 and 4 rest on the Planner's reading of the operator's words, labelled as such in each item. Item 5 is the Planner's statement of who wrote the corrections and what the operator was shown. Item 6 is the Planner's statement of the reach of 2026-11-14-08 item 6. The Analyst decided nothing here.
+
+**Not authorised by this:** merging `t2-2026-11-14` or `t2b-2026-11-15`. The Planner's message quoted above says "The T2 branch stays unmerged until then", after the backup procedure. Where E-GR's backups are kept is not decided (item 3).
+
+**Notes:** Written by the Analyst from the dispatch at prompts/preserved/2026-11-15-01.md, "The operator's ruling" and step 3, as it stands at commit 7fe71aa. Every quotation, the six What-it-sets items, the Supersedes text and the Deferred text are copied from the dispatch by script; the five DEFER lines are the Analyst's, each naming the action the first review's Artifacts row found without an artifact. The Analyst has no access to the chat in which the exchange took place, so the quotations are verified against the dispatch only; the Planner's attribution of them is taken as given. The operator's second line, "2 yes ", ends in a space in the dispatch, and the space is kept. The dispatch's instruction after the Deferred text, "Write one line for each beginning `DEFER:`.", is carried out by the five lines and not copied. Item 5's label applies, in the dispatch's text, to: Intent-Driven Engineering Do 1, Why and Example (fault 2); the When unclear lines of Truthful Interface Contracts, Capability Ranges Are Not Operating Envelopes and Checks Decay (fault 3); Role Partition Do 4 and Why (fault 4). Each of these is proposed by the Planner, wording not yet shown to the operator. The same is true, by the dispatch's own account, of the wording of the fault 1 corrections; the operator chose the Split option, not the wording. Item 5 does not label those, and this entry does not add a label item 5 does not give. The field labels, Title, Who decided and Not authorised by this are the Analyst's, modelled on 2026-11-14-08. Next free ID: 2026-11-15-03.
+
+---
+
+**Kind:** terminal
+
+**ID:** 2026-11-15-03
+
+**Timestamp:** 2026-11-15T22:26:07Z
+
+**Model:** claude-opus-5-5
+
+**Closes:** 2026-11-15-01
+
+**Outcome:** completed
+
+**Report-file:** reports/2026-11-15-01.md
+
+**Observed:**
+
+Step 1 of the dispatch, verified before anything was built (details in the Baseline of 2026-11-15-01):
+
+- a. Confirmed. t2b-2026-11-15 at 7fe71aa descends from 5961ff4; one commit since, adding one file, prompts/preserved/2026-11-15-01.md.
+- b. Confirmed. `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0, on the tree at 7fe71aa.
+- c. Confirmed. `git ls-remote origin` showed main c8812e8, t1-2026-11-14 de26e7d, t2-2026-11-14 5961ff4, t2b-2026-11-15 7fe71aa; RECORD.md at each ends at 2026-11-14-06 (main, t1) or 2026-11-14-09 (t2, t2b). No ID 2026-11-15-01 or later.
+- d. Confirmed. PHILOSOPHY.md lines 57, 81 and 91 begin with the three headwords.
+- e. Confirmed. Each of the seven headwords is a `### ` line exactly once in ENFORCEMENT.md.
+- f. Confirmed in substance for all four faults. Faults 1, 2 and 4 are as reports/2026-11-14-07.md states them. Fault 3 describes Fit row F4 correctly, but the report classed F4 "Noted, not a clear contradiction"; calling it a fault is the Planner's stronger reading, not a misreading of the row.
+
+Order of work: intent 2026-11-15-01 was appended, committed alone and pushed first; `git ls-remote origin t2b-2026-11-15` then showed 5de6a3c22d9226e4d84d8a11a9287b3c23ddabe9. Decision entry 2026-11-15-02 was appended next; a script copied each quotation, the six What-it-sets items, the Supersedes text and the Deferred text from the dispatch, then confirmed each string is present in RECORD.md. Then PHILOSOPHY.md and ENFORCEMENT.md were edited by a script that took the text from the dispatch file.
+
+Step 4c, script /tmp/t2b/verify4c.py, a separate script from the one that made the edits, comparing against `git show 5961ff4:<file>` and the dispatch file. Output, exit 0:
+
+```
+block headwords == seven: True
+entry order unchanged: True 16
+  named  Role Partition: equals dispatch text: True
+  named  Truthful Interface Contracts: equals dispatch text: True
+  named  Capability Ranges Are Not Operating Envelopes: equals dispatch text: True
+  named  Separate Execution Contexts: equals dispatch text: True
+  named  Checks Decay: equals dispatch text: True
+  named  Validate Real Event Paths: equals dispatch text: True
+  named  Intent-Driven Engineering: equals dispatch text: True
+  other  Reconstructable Environments: byte-identical to 5961ff4: True
+  other  Explicit Canonicalization: byte-identical to 5961ff4: True
+  other  Presentation Is Not Acquisition: byte-identical to 5961ff4: True
+  other  Concurrency Awareness: byte-identical to 5961ff4: True
+  other  Evidence-Based Feature Addition: byte-identical to 5961ff4: True
+  other  Confirm Failure Before Applying Fixes: byte-identical to 5961ff4: True
+  other  Data-Driven Debugging: byte-identical to 5961ff4: True
+  other  Assert Structural and Semantic Truths: byte-identical to 5961ff4: True
+  other  Complete Task Prompts: byte-identical to 5961ff4: True
+others count: 9
+everything above first ### (incl. "## Entries") byte-identical to 5961ff4: True
+file == 5961ff4 with only the seven entry texts swapped (separators unchanged): True
+PHILOSOPHY.md line count old/new: 134 134
+PHILOSOPHY.md differing lines: [57, 81, 91]
+  line 57 equals 4a text: True
+  line 81 equals 4a text: True
+  line 91 equals 4a text: True
+ALL OK
+```
+
+(The line count is of a split on newline, so it includes the empty string after the final newline; `wc -l` gives 133.)
+
+Check runs, in order. Every run used E-GD's PHILOSOPHY.md at 7e227d0 as the argument.
+
+1. Step 1b, working tree at 7fe71aa, before 22:20:42Z (the session's first clock reading; the run itself was not timed): `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`. Exit 0.
+2. Before the intent commit, intent entry appended, 22:21:17Z: counts line unchanged, `PASS`. Exit 0.
+3. After the step 4 edits, working tree, 22:22:39Z: counts line unchanged, `PASS`. Exit 0.
+4. Positive control, scratch copy /tmp/t2b/pc (check_transfer.py, GLOSSARY.md, PHILOSOPHY.md, ENFORCEMENT.md copied from the working tree), lines 179 to 194 of ENFORCEMENT.md (`### Checks Decay` to the line before `### Data-Driven Debugging`) deleted, 22:22:39Z: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `FAIL: ENFORCEMENT.md: 'Checks Decay' appears 0 times, expected 1`, `1 failure(s)`. Exit 1.
+5. Positive control reverted: the scratch ENFORCEMENT.md restored from the working tree; `cmp` found all four scratch files identical to the working tree's; counts line unchanged, `PASS`. Exit 0.
+6. At commit: see below.
+
+Predictions:
+
+- Planner 1: right. The check passes after the edits with counts unchanged (runs 3 and 6).
+- Planner 2: right. The 4c script shows the nine other entries byte-identical to 5961ff4 and the seven equal to the dispatch's text.
+- Planner 3: wrong. The review (G1) finds that Capability Ranges' When unclear line offers the Operator the choice "to run with every result labelled 'no validated range'", which is planned work with no validated range, excluded by line 57 ("plans no work outside it"); F1 recurs there, narrowed. It also finds (G2) the same pattern in Checks Decay Do 3, against line 85. F2, F3 and F4 do not recur as first stated.
+- Planner 4: right in part. Role Partition Do 4 now names where the decline goes, "its report". By the first review's rule it is classed partial, not artifact: the report is a durable file for an Analyst executing a dispatch, and no durable place is named for a Planner or for a decline outside a dispatch.
+- Planner 5: right. The review records new problems: G1 to G5 and A1 to A7, among them A2 (BOOTSTRAP.md item 1 states the superseded pre-registration field list) and A1 (the Separate Execution Contexts correction loosens the philosophy line, the Label option's remedy).
+- Analyst mechanism: right on every part. The check passed after the edits with counts unchanged; the positive control printed exactly the one predicted failure and no R4 failure, counts unchanged, exit 1; the 4c script found the seven equal, the nine and the preamble identical, and PHILOSOPHY.md changed on lines 57, 81 and 91 only.
+
+Review (reports/2026-11-15-01.md): Artifacts, 12 rows (11 new or changed Do bullets and 1 renumbered), 0 "none", 2 partial (Role Partition 4, Capability Ranges Are Not Operating Envelopes 3), 10 artifact. Fit: F1 recurs narrowed (G1); F2, F3, F4 do not recur as stated; new rows G1 to G5. Anything else: A1 to A7.
+
+At commit, read after this entry was written and before `git commit`:
+
+- Check on the tree exactly as committed: run at 22:26:12Z, `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0.
+- Step 4c script on the tree as committed: all 23 comparisons True, last line `ALL OK`, exit 0.
+- Append-only count, `git diff HEAD -- RECORD.md | grep -c '^-[^-]'`: 0.
+- `git status --short` file list: `M  ENFORCEMENT.md`, `M  PHILOSOPHY.md`, `M  RECORD.md`, `A  reports/2026-11-15-01.md` (staged). BOOTSTRAP.md, GLOSSARY.md, README.md, check_transfer.py, skills/, prompts/ and reports/2026-11-14-07.md show no change.
+- The hash of the commit carrying this entry cannot be written inside it; it is given in the Analyst's report, as `git ls-remote` shows it.
+
+**Deviations:**
+
+Could not verify:
+
+- The quotations in 2026-11-15-02 against the chat they come from. They were checked against the dispatch only.
+- The Planner's account of what the operator was and was not shown (2026-11-15-02 items 5 and 6).
+- The final commit's hash, which cannot appear in the entry it carries.
+- Every classification in the review is a reading, made by the rules stated in the report; none is a measurement.
+
+Decided by the Analyst:
+
+- The wording of Title, Change, Scope boundary, Baseline, Finish line, Abort conditions and Notes in 2026-11-15-01, and of Title, the exchange field labels, Who decided, Not authorised by this, the five DEFER lines and Notes in 2026-11-15-02. The dispatch named these fields without giving their text.
+- In 2026-11-15-02, the dispatch's sentence "Write one line for each beginning `DEFER:`." was carried out by the five lines and not copied into the Deferred field; Notes says so. Item 5's label instruction was copied as given, and Notes names the entries it applies to.
+- The decision entry was committed with the edits and the terminal entry, not alone; the dispatch asks only the intent to be committed alone.
+- The 4c script's definition of an entry (from its `### ` line to the line before the next, trailing blank lines stripped) and the extra test that the whole file equals 5961ff4 with only the seven texts swapped, which covers the blank-line separators.
+- The positive control's line range (179 to 194) and the scratch copy's file set.
+- The review's classification rules are the first review's; the Analyst added the "New or changed" column, listed the renumbered Separate Execution Contexts 3 for completeness, and classed Capability Ranges 3 partial and Validate Real Event Paths 4 artifact for the reasons the rows give.
+
+Seen and not asked about:
+
+- The dispatch says it was "Written by the Planner on 2026-11-15T22:20Z"; its commit, 7fe71aa, is dated 2026-11-15T14:19:27-08:00 (22:19:27Z), 33 seconds earlier. Immaterial to the work; noted as a timestamp not read from a clock at the moment it names.
+- The dispatch's three-fault framing of Fit row F4 as a fault, where the first review called it a note (step 1f above).
+- RECORD.md 2026-11-15-02 item 5 labels only the corrections for faults 2 to 4; the fault 1 corrections were also written by the Planner and not shown to the operator as wording (review A4).
+- BOOTSTRAP.md item 1 states the superseded pre-registration field list (review A2). The dispatch's "Already considered and rejected" says BOOTSTRAP.md's items "do not state the superseded wording"; this one does. Not changed: BOOTSTRAP.md is on the do-not-touch list.
+- The amendment notes in the seven entries and three lines cite 2026-11-15-01, the intent, not 2026-11-15-02, the decision (review A3).
+- E-GR still has no check of RECORD.md's form; these three entries were verified by reading and by the quotation script only.
+
+**Notes:** Written by the Analyst. The check, the 4c script, the append-only count and `git status` were run after this entry was written and before the commit, and their results filled in above from that run. Next free ID: 2026-11-15-04.

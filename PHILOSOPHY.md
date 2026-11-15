@@ -54,7 +54,7 @@ Each entry cites its E-GD source as `E-GD:line`, meaning the line of PHILOSOPHY.
 
 **Truthful Interface Contracts:** Translated (E-GD:47). An instrument or assay reports what it can and cannot detect. Values below a limit of detection are reported as below it, not as zero and not as an imputed number without saying so.
 
-**Capability Ranges Are Not Operating Envelopes:** Translated (E-GD:49). A manufacturer's stated range is what an instrument can be set to, not the range it was validated over. A protocol states the validated range and stays inside it.
+**Capability Ranges Are Not Operating Envelopes:** Translated (E-GD:49). A manufacturer's stated range is what an instrument can be set to, not the range it was validated over. A protocol states the validated range and plans no work outside it. A reading that lands outside anyway is kept and flagged, never discarded. Amended under RECORD.md 2026-11-15-01.
 
 **Observable Configuration References:** Code-only (E-GD:51). See skills/egd-analysis-code.
 
@@ -78,7 +78,7 @@ Each entry cites its E-GD source as `E-GD:line`, meaning the line of PHILOSOPHY.
 
 ## Testing and Verification Culture
 
-**Separate Execution Contexts:** Translated (E-GD:73). A result in one context is not a result in another. Agar is not grain, in vitro is not in vivo, a growth chamber is not a summer garage. Each context is tested on its own.
+**Separate Execution Contexts:** Translated (E-GD:73). A result in one context is not a result in another. Agar is not grain, in vitro is not in vivo, a growth chamber is not a summer garage. Each context a study makes claims about is tested on its own. A statement about a context that was not tested is an inference, and is labelled as one. Amended under RECORD.md 2026-11-15-01.
 
 **Confirm Failure Before Applying Fixes:** Translated (E-GD:75). Every assay and analysis runs with controls. A positive control shows the method can detect the effect; a negative control shows it does not detect the effect where none exists. The expected control result is stated before the run. A control that fails in an unexpected way voids the run, not the hypothesis.
 
@@ -88,7 +88,7 @@ Each entry cites its E-GD source as `E-GD:line`, meaning the line of PHILOSOPHY.
 
 **Data-Driven Debugging:** Translated (E-GD:77). After two failed explanations for the same anomaly, no third is proposed. The next step is data: a controlled comparison, a minimal reproduction, or a direct measurement of the suspected cause.
 
-**Validate Real Event Paths:** Translated (E-GD:79). A method is validated under the conditions it will be used in. A protocol tested only on ideal cultures has not been tested on the cultures it will meet.
+**Validate Real Event Paths:** Translated (E-GD:79). A method is validated under the conditions it will be used in. A protocol tested only on ideal cultures has not been tested on the cultures it will meet, and a protocol does not plan to rely on such a method. Results already produced that way are kept and labelled. Amended under RECORD.md 2026-11-15-01.
 
 **Assert Structural and Semantic Truths:** Translated (E-GD:81). Construct validity: a measure must measure what it is named for. Counting fruiting bodies is not measuring yield if size varies tenfold; a sequence match is not an identification without type material to match against.
 
