@@ -123,3 +123,52 @@ Out of scope, deferred:
 - Role split not held: one session planned and executed, as 2026-11-14-01 states.
 
 **Notes:** Written by the planner-executor. Checks run after this entry, before the final commit. Next free ID: 2026-11-14-04.
+
+---
+
+**Kind:** intent
+
+**ID:** 2026-11-14-04
+
+**Timestamp:** 2026-11-15T07:33:30Z
+
+**Model:** claude-fable-5-2
+
+**Title:** Record the operator's rulings of 2026-11-14 23:23 to 23:28 PST, and close check_transfer.py's stray-headword gap
+
+**Dispatch-file:** preserved/2026-11-14-04.md
+
+**Change:**
+
+1. RECORD.md: append a decision entry, 2026-11-14-05, holding the operator's rulings in the operator's exact words as the dispatch quotes them.
+2. check_transfer.py: add one rule. Every bold headword found in E-GR's PHILOSOPHY.md must have a row in GLOSSARY.md; each one that does not adds the failure `PHILOSOPHY.md: '<headword>' has no GLOSSARY.md row`. The docstring states the new rule. Nothing else is added.
+3. RECORD.md: append a terminal entry, 2026-11-14-06, closing this intent.
+
+**Scope boundary:** RECORD.md (appended lines only) and check_transfer.py, on branch t1-2026-11-14 of slayer8366/E-GR-Philosophy.
+
+Out of scope, by the dispatch's "Do not touch" list: PHILOSOPHY.md, GLOSSARY.md, BOOTSTRAP.md, README.md, both skills, existing lines of RECORD.md (including the em dashes in 2026-11-14-02), the dispatch file, E-GD, and anything in the task plan beyond this dispatch (ENFORCEMENT.md, PROTOCOL.md, LICENSE and the rest). Also out of scope: reporting duplicate non-E-GD headwords (considered and rejected in the dispatch), other branches, merging, a pull request. Plants and sabotages are made on scratch copies under /tmp, not in the working tree.
+
+**Baseline:**
+
+- Branch t1-2026-11-14 at 126164cade6d0f6d0fd747658a152798ed3c309c, parent 1bd7f1801198bff0356bb68dbdf494e4f3924ef5. `git diff --name-status 1bd7f18 HEAD` lists one file, added: prompts/preserved/2026-11-14-04.md. Dispatch step 1a: confirmed.
+- `python3 check_transfer.py` against E-GD PHILOSOPHY.md at 7e227d048e30e13e79151dbce4a8339cee4970b3, run on the working tree at 2026-11-15T07:32:45Z: printed `counts: Carried 21, Code-only 8, New 6, Translated 16` then `PASS`, exit 0. Step 1b: confirmed.
+- The gap, step 1c: confirmed as the Planner diagnosed it. In check_transfer.py at 126164c (the file is unchanged from 1bd7f18), `egr_heads` is assigned at line 62 and read only at lines 69, 78 and 79, each time as `egr_heads.count(h)` where `h` comes from E-GD's headword list (loop at line 63) or from GLOSSARY.md rows (loop at line 73). No loop walks `egr_heads`. Reproduced at 2026-11-15T07:32:56Z on a scratch copy at /tmp/egr-scratch (made with `git archive HEAD`), with the line `**Stray Principle:** New. Planted.` appended to PHILOSOPHY.md: the check printed `counts: Carried 21, Code-only 8, New 6, Translated 16` then `PASS`, exit 0.
+- Record IDs on the remote, step 1d: `git ls-remote origin` shows two branches, skeleton-2026-11-14 at 1bd7f18 and t1-2026-11-14 at 126164c. RECORD.md is identical at both and its last entry is 2026-11-14-03. No ID after -03 exists on the remote. Confirmed.
+
+**Prediction (outcome, planner):** "After the fix, a planted headword `**Stray Principle:** New.` in PHILOSOPHY.md makes check_transfer.py exit 1 with exactly one failure, and that failure names 'Stray Principle'. With the plant removed the check passes with counts Carried 21, Code-only 8, New 6, Translated 16, unchanged."
+
+**Prediction (mechanism, analyst):** Written before check_transfer.py is edited.
+
+- Unfixed check, with the plant: PASS, exit 0, counts unchanged, because `headwords()` reads the planted line into `egr_heads` but nothing iterates that list. Already observed once in the baseline; it will be observed again as step 4.1.
+- Fixed check, with the plant: three lines, exit 1: `counts: Carried 21, Code-only 8, New 6, Translated 16`, then `FAIL: PHILOSOPHY.md: 'Stray Principle' has no GLOSSARY.md row`, then `1 failure(s)`. The counts are unchanged because they are computed from GLOSSARY.md rows only.
+- Fixed check, plant removed, real working tree: counts line as above, then `PASS`, exit 0.
+- The three earlier sabotages, under the fixed check. I predict two of them now print one failure more than entry 2026-11-14-03 describes, because the new rule also sees the other half of each mismatch:
+  - Checks Decay row removed from GLOSSARY.md: 2 failures. `GLOSSARY.md: 'Checks Decay' appears 0 times, expected 1` as before, plus `PHILOSOPHY.md: 'Checks Decay' has no GLOSSARY.md row`. Counts line shows one fewer in Checks Decay's bucket.
+  - Sourced Claims bucketed "Carryed": 1 failure, `GLOSSARY.md line 48: bad bucket 'Carryed' for 'Sourced Claims'`, as before. Counts line shows one fewer in Sourced Claims' bucket.
+  - Severity of Checks renamed in PHILOSOPHY.md: 2 failures. `PHILOSOPHY.md: 'Severity of Checks' appears 0 times, expected 1` as before, plus a no-GLOSSARY-row failure naming the renamed headword.
+
+**Finish line:** entry 2026-11-14-05 is appended with every quotation as the dispatch gives it; check_transfer.py carries the one new rule and an updated docstring; the plant was observed passing the unfixed check and failing the fixed check; the three earlier sabotages were each observed failing and reverted; the check passes on the tree exactly as committed; `git status` shows no do-not-touch file changed; the append-only count is 0; terminal entry 2026-11-14-06 is written; the branch is pushed and the commit confirmed with `git ls-remote`.
+
+**Abort conditions:** any step 1 item does not match; the fixed check fails on the plant for a reason not predicted (the dispatch says the fault is then in the check: stop and report); the fixed check does not pass on the real tree; a sabotage no longer fails; the push is refused; or anything requires a design decision the dispatch did not close.
+
+**Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-14-04.md under the operator's go quoted in that dispatch ("2 go"). The `Dispatch-file` value is relative to `prompts/`, following E-GD's RECORD.md at 7e227d0, line 254. The wording of Change, Scope boundary, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named the fields but did not give their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15; the entry ID follows the dispatch's numbering. Next free ID after this dispatch's three entries: 2026-11-14-07.
