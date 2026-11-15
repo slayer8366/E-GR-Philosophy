@@ -24,6 +24,7 @@ The transfer, as first drawn: 21 Carried, 16 Translated, 8 Code-only, 6 New. `ch
 |---|---|---|
 | `BOOTSTRAP.md` | Agents | The one page loaded every session. |
 | `PHILOSOPHY.md` | Agents | The 45 transferred principles and the research layer. |
+| `ENFORCEMENT.md` | Agents | What the Planner and Analyst do about each principle. The 16 Translated principles so far. |
 | `GLOSSARY.md` | Machines | Headword index against E-GD, checked by script. |
 | `check_transfer.py` | Machines | Verifies GLOSSARY and PHILOSOPHY against E-GD's headwords. |
 | `RECORD.md` | Both | The append-only record. |
@@ -34,7 +35,7 @@ Running the check: `python3 check_transfer.py PATH/TO/E-GD-Philosophy/PHILOSOPHY
 
 ## Not yet here
 
-ENFORCEMENT.md, PROTOCOL.md, onboarding, role profiles, a CLAUDE.md, and a license. Each comes under its own record entry.
+ENFORCEMENT.md entries for the Carried principles, PROTOCOL.md, onboarding, role profiles, a CLAUDE.md, and a license. Each comes under its own record entry.
 
 ## What this does not claim
 

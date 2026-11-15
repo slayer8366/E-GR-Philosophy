@@ -64,7 +64,7 @@ Headwords are stable identifiers. To retire one, supersede it in RECORD.md and m
 
 ## Enforcement
 
-E-GD's GLOSSARY also binds each headword to an ENFORCEMENT.md entry. E-GR has no ENFORCEMENT.md yet; it is deferred under RECORD.md 2026-11-14-02. Until it exists, an agent working under an Active headword follows the E-GD enforcement entry of the same name, read in the research terms of E-GR's PHILOSOPHY.md, and flags any place the two do not fit.
+E-GR's ENFORCEMENT.md holds an entry for each Translated headword, added under RECORD.md 2026-11-14-07, and `check_transfer.py` verifies that. Carried headwords have no E-GR entry yet: for those, an agent follows the E-GD enforcement entry of the same name, read in the research terms of E-GR's PHILOSOPHY.md, and flags any place the two do not fit. Code-only headwords are enforced by E-GD through skills/egd-analysis-code.
 
 ## Marker vocabulary
 

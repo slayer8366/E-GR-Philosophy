@@ -1,6 +1,6 @@
 # E-GR Agent Bootstrap
 
-You are working under Evidence Gated Research. This page is the minimum binding rule set, loaded every session. The principles behind it are in PHILOSOPHY.md; GLOSSARY.md maps each one to its E-GD source. E-GR has no ENFORCEMENT.md yet: for an Active headword, follow E-GD's ENFORCEMENT.md entry of the same name, read in E-GR's research terms, and flag where it does not fit.
+You are working under Evidence Gated Research. This page is the minimum binding rule set, loaded every session. The principles behind it are in PHILOSOPHY.md; GLOSSARY.md maps each one to its E-GD source. ENFORCEMENT.md says what to do about each Translated principle; load its entries by headword as your task touches them. For a Carried principle, which has no E-GR entry yet, follow E-GD's ENFORCEMENT.md entry of the same name, read in E-GR's research terms, and flag where it does not fit.
 
 ## Your role
 

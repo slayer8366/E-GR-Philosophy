@@ -373,3 +373,138 @@ Out of scope, by the dispatch's "Do not touch" list: the wording of any entry be
 **Abort conditions:** step 1a, 1b, 1c or 1e does not match; any check run fails for a reason not predicted (the dispatch says the fault is then in the check: stop and report); ENFORCEMENT.md does not equal the block; the check does not pass on the real tree; a push is refused; the append-only count is not 0; or anything requires a design decision the dispatch did not close.
 
 **Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-14-07.md and its addendum at prompts/preserved/2026-11-14-07-addendum.md, under the operator's go quoted in the dispatch ("3 go") and the go to start the Analyst quoted in the addendum ("2 go"). The `Model` value is read from the session's own information, which names the model Opus 5.5, ID claude-opus-5-5. The wording of Title, Change, Scope boundary, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named these fields without giving their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15; the entry IDs follow the dispatch's numbering, as the addendum confirms. Next free ID after this dispatch's three entries: 2026-11-14-10.
+
+---
+
+**Kind:** decision
+
+**ID:** 2026-11-14-08
+
+**Timestamp:** 2026-11-15T14:03:35Z
+
+**Model:** claude-opus-5-5
+
+**Title:** The operator's rulings of 2026-11-14 23:55 PST and 2026-11-15 06:00 PST: merge to main, the low-context reading, the Analyst's model, the go for T2, confirmation of the 16 enforcement entries, backups before merges
+
+**Exchange D, what the operator was told (Planner, 2026-11-14 about 23:35 PST), under "Yours to decide":** "1. Merging. Nothing is merged, and the repo still has no `main`. 2. Whether "any model with low context" means what I took it to mean: any model, in a fresh session with minimal context. 3. The go for T2, the enforcement entries for the 16 translated principles."
+
+**Exchange D, the operator, verbatim, 2026-11-14 23:55 PST:**
+
+"1 Main is now named. Merge to main.
+2 yes, for testing. Claude Analyst can run on Opus 5.5
+3 go"
+
+**Exchange E, what the operator was told (Planner, 2026-11-15 about 00:10 PST), under "What I need from you":** "1. Confirmation of the 16 entries, or corrections. 2. The go to start the Analyst on Opus 5.5. 3. Backups before merges in E-GR: yes or no. This one doesn't block T2." Before those three asks the operator was shown the 16 entries as one line each, and told the full text is in the dispatch file.
+
+**Exchange E, the operator, verbatim, 2026-11-15 06:00 PST:**
+
+"1 confirm
+2 go
+3 yes back it up"
+
+**What it sets:**
+
+1. Merge authorised. The Planner merged `t1-2026-11-14` into `main` with a merge commit, `c8812e8`, committed 2026-11-14T23:55:36-08:00, after `check_transfer.py` passed on the merged tree, and confirmed it on the remote.
+2. No backup of the base was made before that merge. E-GD's `ENFORCEMENT.md` line 69 asks for one before a merge into a protected branch. The base, `1bd7f18`, is the merge commit's first parent and is on the remote. Recorded as a deviation by the Planner. OPEN for the operator: whether E-GR adopts backups before merges.
+3. The Planner's reading of "any model with low context" (any model, in a fresh session with minimal context) is confirmed by the operator, "for testing". This closes item 7 of entry 2026-11-14-05.
+4. The Analyst can run on Opus 5.5.
+5. Go for task T2, this dispatch.
+6. The operator confirmed the 16 enforcement entries the dispatch carries, as summarised to the operator one line each. The confirmation covers the entries as written in `prompts/preserved/2026-11-14-07.md` at `199ac5c`.
+7. Go to start the Analyst for this dispatch, on Opus 5.5.
+8. E-GR adopts backups before merges. This closes the open question in item 2. How a backup is made and verified in E-GR is not yet written; that procedure is a later task and is not part of this one. DEFER: backup-before-merge procedure for E-GR.
+
+**Who decided:** the operator, for item 1 (the authorisation; the merge itself was done by the Planner), items 3, 4 and 5 (Exchange D), and items 6, 7 and 8 (Exchange E). Item 2 is the Planner's record of its own deviation; the open question in it is closed by the operator's ruling in item 8. The Analyst decided nothing here.
+
+**Not authorised by this:** merging `t2-2026-11-14`, or any task after T2.
+
+**Notes:** Written by the Analyst from the dispatch at prompts/preserved/2026-11-14-07.md, step 3 (Exchange D, items 1 to 5, Not authorised), as it stands at commit 199ac5c, and from its addendum at prompts/preserved/2026-11-14-07-addendum.md (Exchange E, items 6 to 8), as it stands at commit b63af85. Every quotation and the eight items are copied from those files by script. The Analyst has no access to the chat in which these exchanges took place, so the quotations are verified against the dispatch and addendum only; the Planner's attribution of them is taken as given. The text outside quotation marks under "what the operator was told" is the Planner's description, as the dispatch and addendum give it; the field labels are the Analyst's, modelled on 2026-11-14-05. Item 2 is kept as the dispatch gives it, OPEN marker included, and item 8 closes it, as the addendum says; neither is edited. Next free ID: 2026-11-14-09.
+
+---
+
+**Kind:** terminal
+
+**ID:** 2026-11-14-09
+
+**Timestamp:** 2026-11-15T14:08:39Z
+
+**Model:** claude-opus-5-5
+
+**Closes:** 2026-11-14-07
+
+**Outcome:** completed
+
+**Report-file:** reports/2026-11-14-07.md
+
+**Observed:**
+
+Step 1 of the dispatch, verified before anything was built (details in the Baseline of 2026-11-14-07):
+
+- a. Confirmed, with one difference the addendum explains. t2-2026-11-14 at b63af85 descends from c8812e8; two files were added since, the dispatch and its addendum, not one as step 1a says.
+- b. Confirmed. `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0, at 14:02:27Z.
+- c. Confirmed. `git ls-remote origin` shows main at c8812e8, t1-2026-11-14 at de26e7d, t2-2026-11-14 at b63af85; RECORD.md at each ends at 2026-11-14-06.
+- d. Confirmed for all 16 entries; every cited line holds its headword in bold, and no other line does. No correction made.
+- e. Confirmed. Each of the 16 headwords has exactly one GLOSSARY.md row, bucket Translated; there are 16 Translated rows in all.
+
+Order of work: intent 2026-11-14-07 was appended, committed alone and pushed first; `git ls-remote origin t2-2026-11-14` then showed 031608a6ad9fff74748989bd24b0c4d143295af5. Decision entry 2026-11-14-08 was appended next; a script copied each quotation, the eight What-it-sets items and the Not-authorised text from the dispatch and addendum and then confirmed each string is present in RECORD.md.
+
+Check runs, in order. Every run used E-GD's PHILOSOPHY.md at 7e227d0 as the argument. Sabotages were on scratch copies under /tmp (check_transfer.py, GLOSSARY.md, PHILOSOPHY.md and ENFORCEMENT.md copied from the working tree); the working tree was never sabotaged.
+
+1. Step 4.1, rules R1 to R4 written, no ENFORCEMENT.md, working tree, 14:03:50Z. Output: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `FAIL: missing file: ENFORCEMENT.md`, `1 failure(s)`. Exit 1.
+2. Step 4.2, ENFORCEMENT.md written from the block, working tree, 14:03:58Z. Output: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`. Exit 0.
+3. S1, /tmp/egr-s1, lines 177 to 192 of ENFORCEMENT.md (`### Checks Decay` to the line before `### Data-Driven Debugging`) deleted, 14:04:07Z. Output: counts line unchanged, `FAIL: ENFORCEMENT.md: 'Checks Decay' appears 0 times, expected 1`, `1 failure(s)`. Exit 1.
+4. S2, /tmp/egr-s2, Role Partition's `**Example:**` changed to `Example:`, 14:04:07Z. Output: counts line unchanged, `FAIL: ENFORCEMENT.md: 'Role Partition' has 0 '**Example:**' lines, expected 1`, `1 failure(s)`. Exit 1.
+5. S3, /tmp/egr-s3, an entry `### Uniform Code Paths` appended with `**Do:**`, `**Why:**`, `**Example:**` and `**When unclear:**` once each, 14:04:08Z. Output: counts line unchanged, `FAIL: ENFORCEMENT.md: 'Uniform Code Paths' is not a Carried or Translated headword`, `1 failure(s)`. Exit 1.
+6. S4, /tmp/egr-s4, `**Stray Principle:** New.` appended as the last line of PHILOSOPHY.md, 14:04:08Z. Output: counts line unchanged, `FAIL: PHILOSOPHY.md: 'Stray Principle' has no GLOSSARY.md row`, `1 failure(s)`. Exit 1.
+7. Reverts, 14:04:08Z: each scratch copy's ENFORCEMENT.md and PHILOSOPHY.md restored from the working tree; `cmp` found all four files in each copy identical to the working tree's; each copy printed the counts line unchanged and `PASS`, exit 0 (four runs).
+8. After the step 6 edits, working tree, 14:07:56Z: counts line unchanged, `PASS`, exit 0.
+9. At commit: see below.
+
+ENFORCEMENT.md against the block: a script took the lines strictly between `<!-- ENFORCEMENT-BEGIN -->` and `<!-- ENFORCEMENT-END -->` in prompts/preserved/2026-11-14-07.md (lines 103 to 373, 271 lines) and compared them with ENFORCEMENT.md as a whole: equal, True. The file is 20053 bytes and ends in one newline.
+
+Review (reports/2026-11-14-07.md), counts read by script from its tables:
+
+- Artifacts: 59 Do bullets. 1 "none" (flag): Role Partition 4. 5 partial (an action without an artifact beside one with): Role Partition 1, Concurrency Awareness 1, Confirm Failure Before Applying Fixes 2, Intent-Driven Engineering 2, Complete Task Prompts 5. 53 with an artifact.
+- Coverage: 36 E-GD bullets at the cited lines. 1 not covered: Presentation Is Not Acquisition, E-GD line 120 (separation enforced by import rules). 8 partial: E-GD lines 31, 96, 124, 127, 169, 210, 212, 218. 27 covered.
+- Fit: no outright contradiction of BOOTSTRAP.md. Three places where an entry permits with a label what PHILOSOPHY.md states as a requirement: Capability Ranges Are Not Operating Envelopes (F1, the strongest; the philosophy says the protocol "stays inside" the validated range, the entry's Example runs outside it), Validate Real Event Paths (F2), Separate Execution Contexts (F3). Three lesser notes, F4 to F6.
+
+Predictions:
+
+- Planner 1, Enforceability: right. 1 of 59 Do bullets flagged, against a limit of 4.
+- Planner 2, Coverage: right on the count. 1 of 36 E-GD bullets has no E-GR counterpart (8 more are covered in part). Whether that gap was "not dropped on purpose" was not assessed, because step 5 says "Do not judge whether a gap is deliberate"; see Deviations.
+- Planner 3, The check: right. With all 16 entries present the check passes with counts unchanged (runs 2 and 8); S1 to S4 each failed with the message step 4 names (runs 3 to 6).
+- Analyst mechanism: right on every part. Run 1 printed the three predicted lines; R1's failure did not suppress the counts line. Run 2 passed; the preamble's label-like lines were not read as entry labels. S1 to S4 each printed exactly the one predicted failure and no other, with counts unchanged. Each revert passed.
+
+At commit, read after this entry was written and before `git commit`:
+
+- Check on the tree exactly as committed: run at 14:08:39Z, `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0.
+- ENFORCEMENT.md equals the block: True.
+- Append-only count, `git diff HEAD -- RECORD.md | grep -c '^-[^-]'`: 0.
+- `git status --short` file list: ` M BOOTSTRAP.md`, ` M GLOSSARY.md`, ` M README.md`, ` M RECORD.md`, ` M check_transfer.py`, `?? ENFORCEMENT.md`, `?? reports/`. PHILOSOPHY.md, skills/ and prompts/ show no change (`git diff --quiet HEAD -- PHILOSOPHY.md skills prompts` succeeds).
+- The hash of the commit carrying this entry cannot be written inside it; it is given in the Analyst's report, as `git ls-remote` shows it.
+
+**Deviations:**
+
+Could not verify:
+
+- The quotations in 2026-11-14-08 against the chat they come from. They were checked against the dispatch and addendum only.
+- Whether the one uncovered E-GD bullet (line 120) and the eight partial ones were dropped on purpose. The dispatch tells the Analyst not to judge this, so planner prediction 2's qualifier "that was not dropped on purpose" is left unscored; only its count is scored.
+- The final commit's hash, which cannot appear in the entry it carries.
+- Every classification in the review is a reading, made by the rules stated in the report; none is a measurement.
+
+Decided by the Analyst:
+
+- The wording of Title, Change, Scope boundary, Finish line, Abort conditions and Notes in 2026-11-14-07, and of Title, the exchange field labels, Who decided and Notes in 2026-11-14-08. The dispatch named these fields without giving their text. In 2026-11-14-08, items 1 to 5 and 6 to 8 are written as one numbered list, in the dispatch's and addendum's order.
+- In check_transfer.py: a constant `LABELS` holding the four labels, and a helper `enforcement_entries()` that splits ENFORCEMENT.md into entries. Both serve R4 and the entry definition; neither adds a rule. The new rules run after the existing ones, and R1's failure skips R2 to R4 without suppressing the counts line. R2 tests every GLOSSARY headword with any row in `ENFORCED_BUCKETS`. R3 gives its one message both for a headword with no GLOSSARY row and for one in another bucket. R4 counts body lines that start with the label exactly, with no leading whitespace allowed.
+- The texts of the sabotages where the dispatch did not give them: S1's line range, S3's entry body (one placeholder line under each label), and S4's position (last line of PHILOSOPHY.md).
+- The classification rules in the review: what counts as an artifact, the "partial" class in both tables, and counting E-GD line 219, an amendment note, as a bullet because it is written as one.
+- The reports/ directory is new; the dispatch names the file in it.
+
+Seen and not asked about:
+
+- README.md line 28 still describes check_transfer.py as verifying "GLOSSARY and PHILOSOPHY against E-GD's headwords"; it now also checks ENFORCEMENT.md. Not named in step 6, so not changed.
+- In 2026-11-14-08, item 2 still carries "OPEN for the operator" while item 8 closes it. Both are kept as the dispatch and addendum give them; item 8 says it closes item 2.
+- The remote no longer has a `skeleton-2026-11-14` branch, which entry 2026-11-14-06 saw; `main` is at c8812e8. The local remote-tracking ref `origin/main` still read 1bd7f18 because the fetch here took only t2-2026-11-14; `git ls-remote` was used as the authority.
+- The Fit findings F1 to F3 share one pattern: the philosophy line states a requirement and the entry substitutes a label for meeting it. The review records them; it does not resolve them.
+- E-GR still has no check of RECORD.md's form or of prompts/ against Dispatch-file fields, as 2026-11-14-06 noted. The two record entries and this one were verified only by reading and by the quotation script.
+
+**Notes:** Written by the Analyst. The check, the block comparison, the append-only count and `git status` were run after this entry was written and before the commit, and their results filled in above from that run. Next free ID: 2026-11-14-10.
