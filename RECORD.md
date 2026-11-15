@@ -508,3 +508,59 @@ Seen and not asked about:
 - E-GR still has no check of RECORD.md's form or of prompts/ against Dispatch-file fields, as 2026-11-14-06 noted. The two record entries and this one were verified only by reading and by the quotation script.
 
 **Notes:** Written by the Analyst. The check, the block comparison, the append-only count and `git status` were run after this entry was written and before the commit, and their results filled in above from that run. Next free ID: 2026-11-14-10.
+
+---
+
+**Kind:** intent
+
+**ID:** 2026-11-15-01
+
+**Timestamp:** 2026-11-15T22:21:17Z
+
+**Model:** claude-opus-5-5
+
+**Title:** Task T2b: correct seven ENFORCEMENT.md entries and three PHILOSOPHY.md lines, and review the corrections
+
+**Dispatch-file:** preserved/2026-11-15-01.md
+
+**Change:**
+
+1. RECORD.md: append a decision entry, 2026-11-15-02, holding the exchange in the dispatch's "The operator's ruling", quotations copied character for character, the Planner's reading labelled as the Planner's, and the What-it-sets, Supersedes and Deferred items of the dispatch's step 3.
+2. PHILOSOPHY.md: replace lines 57, 81 and 91 (Capability Ranges Are Not Operating Envelopes, Separate Execution Contexts, Validate Real Event Paths) with the text the dispatch's step 4a gives, and nothing else.
+3. ENFORCEMENT.md: replace the seven entries Role Partition, Truthful Interface Contracts, Capability Ranges Are Not Operating Envelopes, Separate Execution Contexts, Checks Decay, Validate Real Event Paths and Intent-Driven Engineering, each from its `### ` line to the line before the next `### `, with the entry of the same name between the dispatch's `ENTRIES-BEGIN` and `ENTRIES-END` markers, and nothing else.
+4. reports/2026-11-15-01.md: the step 5 review of the seven corrected entries (Fit, Artifacts, anything else), classified and recorded, not fixed.
+5. RECORD.md: append a terminal entry, 2026-11-15-03, closing this intent.
+
+**Scope boundary:** RECORD.md (appended lines only), PHILOSOPHY.md lines 57, 81 and 91, the seven named entries of ENFORCEMENT.md, and the new file reports/2026-11-15-01.md, on branch t2b-2026-11-15 of slayer8366/E-GR-Philosophy.
+
+Out of scope, by the dispatch's "Do not touch" list: the wording of any entry or line the dispatch gives; the nine entries not named and everything above `## Entries` in ENFORCEMENT.md; every other line of PHILOSOPHY.md; BOOTSTRAP.md, GLOSSARY.md, README.md, check_transfer.py and both skills; existing lines of RECORD.md; every existing file under prompts/ and reports/; E-GD; the five deferred partial Artifacts rows; the backup procedure; task T3. Also out of scope: other branches, merging, a pull request, and fixing anything the review finds. The positive control is made on a scratch copy under /tmp.
+
+**Baseline:**
+
+- Step 1a: confirmed. Branch t2b-2026-11-15 at 7fe71aa4f5f9f35c741aa38b1a54ba41244293a8; `git merge-base --is-ancestor 5961ff4 HEAD` succeeds; `git log 5961ff4..HEAD` lists one commit, 7fe71aa; `git diff --name-status 5961ff4 HEAD` lists one file, added: prompts/preserved/2026-11-15-01.md.
+- Step 1b: confirmed. `python3 check_transfer.py /home/claude/slayer8366/e-gd-philosophy/PHILOSOPHY.md` (E-GD clone at 7e227d048e30e13e79151dbce4a8339cee4970b3, clean), run on the working tree at 7fe71aa, printed `counts: Carried 21, Code-only 8, New 6, Translated 16` then `PASS`, exit 0.
+- Step 1c: confirmed. `git ls-remote origin` shows main at c8812e8, t1-2026-11-14 at de26e7d, t2-2026-11-14 at 5961ff4 and t2b-2026-11-15 at 7fe71aa, and no other branch. RECORD.md at c8812e8 and de26e7d has `**ID:**` lines 2026-11-14-01 to -06; at 5961ff4 and 7fe71aa, 2026-11-14-01 to -09. No ID 2026-11-15-01 or later on any of them.
+- Step 1d: confirmed. PHILOSOPHY.md lines 57, 81 and 91 begin `**Capability Ranges Are Not Operating Envelopes:**`, `**Separate Execution Contexts:**` and `**Validate Real Event Paths:**`.
+- Step 1e: confirmed. Each of the seven headwords occurs exactly once as a `### ` line in ENFORCEMENT.md (`grep -cx` gives 1 for each).
+- Step 1f: confirmed, with one difference of weight noted. Faults 1, 2 and 4 are as reports/2026-11-14-07.md states them (Fit F1 to F3; Coverage row for E-GD line 210, "Not carried: 'scope boundary' and 'baseline'"; Artifacts row Role Partition 4, "none (flag)"). Fault 3 matches the report's Fit row F4 in substance: it names the When unclear lines of Checks Decay, Truthful Interface Contracts and Capability Ranges, which record the gap and continue, against BOOTSTRAP.md's stop conditions. But the report classed F4 as "Noted, not a clear contradiction", saying "Whether a missing interval is an ambiguous protocol is not settled by either text". The dispatch calls it a fault. That is the Planner's stronger reading of a row the review left unresolved, not a misreading of what the row says.
+- The dispatch was checked against ENFORCEMENT.md "Complete Task Prompts" Do 1 before starting. It names the role, files in scope, the closed decision it builds on (2026-11-14-08 item 6) and the new ruling, the predictions, the check and its positive control, and what is out of scope, and names the backup-procedure task and T3 as other work not to touch. It gives no text for Change, Scope boundary, Baseline, Finish line or Abort conditions; their wording here is the Analyst's, drawn from the dispatch, as in 2026-11-14-07.
+- The seven entries in the dispatch block (lines strictly between the markers, 113 lines) each have one `### ` line and each of the four labels once at the start of a line.
+
+**Prediction (outcome, planner):** "1. After the edits the check passes with counts unchanged.
+2. The nine entries not named in this dispatch are byte-identical to `5961ff4`, and each of the seven named entries equals the dispatch's text.
+3. The review in step 5 finds no place where one of the seven corrected entries permits what its corrected PHILOSOPHY.md line excludes. Fit rows F1 to F4 do not recur.
+4. Role Partition bullet 4 now has a named artifact.
+5. The review finds at least one new problem the Planner did not see."
+
+**Prediction (mechanism, analyst):** Written before PHILOSOPHY.md or ENFORCEMENT.md is edited. check_transfer.py reads PHILOSOPHY.md only for bold headwords at the start of a line (`^\*\*([^*]+?):\*\*`); the three new lines keep their headwords and add no bold text before the colon, so the headword list and GLOSSARY counts are unchanged. ENFORCEMENT.md is split at `### ` and `## ` lines; the seven replacement entries keep their headwords and carry each label once at the start of a line, and introduce no `### ` or `## ` line, so R2, R3 and R4 see the same 16 entries with four labels each.
+
+- After the edits, working tree: `counts: Carried 21, Code-only 8, New 6, Translated 16`, `PASS`, exit 0.
+- Positive control, scratch copy with the Checks Decay entry deleted (`### Checks Decay` to the line before `### Data-Driven Debugging`): counts line unchanged, then exactly one failure, `FAIL: ENFORCEMENT.md: 'Checks Decay' appears 0 times, expected 1`, then `1 failure(s)`, exit 1. No R4 failure, because the preceding entry (Confirm Failure Before Applying Fixes) then runs to `### Data-Driven Debugging` and gains no label lines.
+- At commit, after the terminal entry: as after the edits, `PASS`, exit 0.
+- The 4c script finds the seven entries equal to the block and the nine others and the preamble byte-identical to 5961ff4; `diff` of PHILOSOPHY.md against 5961ff4 shows three changed lines, 57, 81 and 91, and no others.
+
+**Finish line:** decision entry 2026-11-15-02 is appended with the operator's and Planner's words copied character for character; PHILOSOPHY.md lines 57, 81 and 91 and the seven ENFORCEMENT.md entries equal the dispatch's text, and a script shows nothing else in either file moved from 5961ff4; the check passes with counts unchanged; the positive control fails with the named message on a scratch copy; reports/2026-11-15-01.md holds the Fit, Artifacts and anything-else findings; terminal entry 2026-11-15-03 is written; the check passes on the tree exactly as committed; the append-only count is 0 before each commit; `git status` shows no do-not-touch file changed; the branch is pushed and confirmed with `git ls-remote`.
+
+**Abort conditions:** step 1a to 1e does not match, or a fault in 1f is not what the report says in substance; any check run fails for a reason not predicted; the 4c script finds a difference outside the named lines and entries; the positive control does not fail with the named message; a push is refused; the append-only count is not 0; or anything requires a design decision the dispatch did not close.
+
+**Notes:** Written by the Analyst, executing the dispatch at prompts/preserved/2026-11-15-01.md under the operator's words quoted there ("1 Split it"), read by the Planner as the go for this task. The `Model` value is read from the session's own information, which names the model Opus 5.5, ID claude-opus-5-5. The wording of Title, Change, Scope boundary, Baseline, Finish line and Abort conditions is the Analyst's, drawn from the dispatch; the dispatch named these fields without giving their text. Timestamps are UTC, read from the session's clock, which reads 2026-11-15. Next free ID after this dispatch's three entries: 2026-11-15-04.
